@@ -1,0 +1,104 @@
+/*respomzivita*/
+*, :before, :after {
+  box-sizing: border-box;
+}
+/*Zakladne styly pre body*/
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Times New Roman", Times, serif;
+  background: lightgray;
+  height: 100%;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+/*obal mapy*/
+.wrapper {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /*!!!Najdôležitejši parameter aby stranka a mapa bola responzivna!!!*/min-width: 1200px;
+}
+/*styly pre mapu*/
+.map_wrapper {
+  max-width: 1200px;
+  position: relative;
+}
+/*Nastavenie pozicie SVG prvkov na na miesto, kde by mali byť */
+.map_wrapper svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+/*styl pre SVG*/
+.region {
+  fill: none;
+  stroke: lightcoral;
+  stroke-width: 5px;
+  cursor: pointer;
+  pointer-events: all;
+}
+/*animacia*/
+.region:hover {
+  animation: highlightRegion 1.5s linear infinite;
+}
+/*animacia*/
+@keyframes highlightRegion {
+  0% {
+    stroke: silver;
+  }
+  50% {
+    stroke: red;
+  }
+  100% {
+    stroke: silver;
+  }
+}
+/*styl pre tooltip*/
+.tooltip {
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding: 5px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  display: none;
+}
+/*styl pre pop up*/
+.info_bg {
+  position: fixed;
+  top: 0;
+  left:  0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0,0,0,0.3);
+  opacity: 0;
+  transition: 0.5s all;
+  pointer-events: none;
+  z-index: 10;
+}
+/*styl pre pop up*/
+.info_bg.active {
+  pointer-events: all;
+  opacity: 1;
+  transition: 0.5s all;
+}
+/*styl pre pop up*/
+.info {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: lavender;
+  border-radius: 15px;
+  padding: 25px;
+  width: 500px;
+}
