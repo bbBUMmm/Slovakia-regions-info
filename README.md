@@ -1,2 +1,2 @@
 # Slovakia-regions-info
-Project on HTML CSS JS with svr animations
+Project on HTML CSS JS with svg animations
